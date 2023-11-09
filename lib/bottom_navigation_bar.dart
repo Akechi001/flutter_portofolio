@@ -24,12 +24,12 @@ class _ReusableBottomNavigationBarState
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
+          icon: Icon(Icons.people),
+          label: 'Biodata',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorites',
+          icon: Icon(Icons.portrait),
+          label: 'Portofolio',
         ),
       ],
     );
