@@ -1,7 +1,5 @@
 // home_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_portofolio/biodata.dart';
-import 'bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

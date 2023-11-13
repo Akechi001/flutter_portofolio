@@ -43,41 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
-    onGenerateRoute: (settings) {
-      switch (settings.name) {
-        case '/Home':
-          return MaterialPageRoute(builder: (context) => HomeScreen());
-        case '/Biodata':
-          return PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return BiodataScreen();
-            },
-/*            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              const begin = Offset(1.0, 0.0); // Slide in from the right
-              const end = Offset.zero;
-              const curve = Curves.ease;
-              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-              var offsetAnimation = animation.drive(tween);
-              return SlideTransition(position: offsetAnimation, child: child);
-            },*/
-          );
-        case '/Portofolio':
-          return PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return PortofolioScreen();
-            },
-            /*transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              const begin = Offset(1.0, 0.0); // Slide in from the right
-              const end = Offset.zero;
-              const curve = Curves.ease;
-              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-              var offsetAnimation = animation.drive(tween);
-              return SlideTransition(position: offsetAnimation, child: child);
-            },*/
-          );
-      }
-    },
     home: MyHomePage(),
   ));
 }

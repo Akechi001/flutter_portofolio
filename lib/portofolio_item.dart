@@ -131,7 +131,7 @@ class ContactInfo extends StatelessWidget {
               iconPath,
               height: 30.0,
               width: 30.0,
-              color: Colors.black, // Customize the color if needed
+              color: Colors.blue, // Customize the color if needed
             ),
             SizedBox(width: 8.0),
             Text(info),
