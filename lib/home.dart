@@ -2,8 +2,11 @@
 import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_portofolio/biodata.dart';
+import 'bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,7 +36,12 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 50),
           ElevatedButton.icon(
               onPressed: (){
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BiodataScreen(),
+                  ),
+                );
           },
               icon: Icon(
                 Icons.people,

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BiodataInfo extends StatelessWidget {
+class BiodataCard extends StatelessWidget {
   final String label;
   final String value;
 
-  const BiodataInfo({required this.label, required this.value});
+  const BiodataCard({required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,40 @@ class BiodataInfo extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class EditTextField extends StatelessWidget {
+  final String label;
+  final TextEditingController controller;
+
+  const EditTextField({required this.label, required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 500,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          Text(
+            '$label: ',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Expanded(
+            child: TextField(
+              controller: controller,
+              style: TextStyle(fontSize: 18),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
     );
   }
 }
