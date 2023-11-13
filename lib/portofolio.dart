@@ -1,6 +1,7 @@
 // favorites_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_portofolio/portofolio_item.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PortofolioScreen extends StatelessWidget {
   @override
@@ -17,83 +18,118 @@ class PortofolioScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 50.0,
+                      radius: 70.0,
                       backgroundImage: AssetImage('assets/profile.jpg'),
                     ),
                     SizedBox(height: 10.0),
                     Text(
-                      'Nama Anda',
+                      'Enrico Kevin Ariantho',
                       style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                    Text('Pendidikan Anda'),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Skill Anda',
-                      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                    SizedBox(height: 30),
+
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Skills dengan tingkat penguasaan (skala 1-5)
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Skill Anda',
+                                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 16),
+                                // List of skills with rating
+                                SkillChip(skillName: 'Flutter    ', rating: 3),
+                                SkillChip(skillName: 'HTML     ', rating: 5),
+                                SkillChip(skillName: 'React JS', rating: 2),
+                                // Add more skills as needed
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 16.0), // Spacer
+                          // Pendidikan dari SD - Universitas
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Pendidikan Anda',
+                                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 16),
+
+                                // List of education
+                                EducationItem(text: 'SD Hati Kudus\n\n - 2010 - 2016'),
+                                EducationItem(text: 'SMP Katolik Rajawali\n\n - 2016 - 2019'),
+                                EducationItem(text: 'SMA Katolik Rajawali\n\n - 2019 - 2022'),
+                                EducationItem(text: 'Universitas Ciputra Makassar\n\n- 2022 - sekarang'),
+                                // Add more education items as needed
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    // List of skills
-                    Wrap(
-                      spacing: 8.0,
-                      children: [
-                        Chip(label: Text('Skill 1')),
-                        Chip(label: Text('Skill 2')),
-                        Chip(label: Text('Skill 3')),
-                        // Add more skills as needed
-                      ],
+                    SizedBox(height: 40),
+
+                    // Cards dengan foto dan 2 line text (scroll horizontal)
+                    Container(
+                      height: 180.0,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: myCards.length,
+                        itemBuilder: (context, index) {
+                          return MyCardWidget(myCard: myCards[index]);
+                        },
+                      ),
+                    ),
+                    // Kontak dengan icon dan info kontak
+                    Container(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ContactInfo(
+                              iconPath: 'assets/icons/phone.svg',
+                              info: '+62895630865639',
+                          ),
+                          ContactInfo(
+                              iconPath: 'assets/icons/email.svg',
+                              info: 'eariantho@student.ciputra.ac.id',
+                          ),
+                          ContactInfo(
+                              iconPath: 'assets/icons/facebook.svg',
+                              info: 'Enrico Kevin',
+                          ),
+                          ContactInfo(
+                              iconPath: 'assets/icons/instagram.svg',
+                              info: 'enrico_kevin_',
+                          ),
+                          ContactInfo(
+                              iconPath: 'assets/icons/line.svg',
+                              info: 'enrico30102003',
+                          ),
+                          ContactInfo(
+                            iconPath: 'assets/icons/github.svg',
+                            info: 'Akechi001',
+                          ),
+                          // Add more contact info as needed
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ),
-              // Cards dengan foto dan 2 line text (scroll horizontal)
-              Container(
-                height: 150.0,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: myCards.length,
-                  itemBuilder: (context, index) {
-                    return MyCardWidget(myCard: myCards[index]);
-                  },
-                ),
-              ),
-              // ... (Widget sesudahnya seperti kontak dengan icon dan info kontak)
-            ],
-          ),
         ),
+        ]
+      ),
+    ),
       ),
     );
   }
 }
 
-class MyCard {
-  final String imagePath;
-  final String line1;
-  final String line2;
-
-  MyCard({required this.imagePath, required this.line1, required this.line2});
-}
-
-final List<MyCard> myCards = [
-  MyCard(imagePath: 'assets/profile.jpg', line1: 'HALO', line2: '2021-2022'),
-  MyCard(imagePath: 'assets/card_image2.jpg', line1: 'Line 1B', line2: 'Line 2B'),
-  // Add more cards as needed
-];
-
-class MyCardWidget extends StatelessWidget {
-  final MyCard myCard;
-
-  const MyCardWidget({required this.myCard});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Image.asset(myCard.imagePath, height: 80.0),
-          SizedBox(height: 8.0),
-          Text(myCard.line1),
-          Text(myCard.line2),
-        ],
-      ),
-    );
-  }
-}
