@@ -34,7 +34,20 @@ class _BiodataScreenState extends State<BiodataScreen> {
     super.dispose();
   }
 
+  void _pickImage() async {
+    // Implement image picking logic here
+    // You can use plugins like image_picker to allow the user to choose an image from the gallery or take a new photo.
+    // Example using image_picker:
+    // File image = await ImagePicker().getImage(source: ImageSource.gallery);
+    // Update the profile picture with the selected image path.
+    // For simplicity, let's assume the image path is stored in a variable called 'newImagePath'.
+    setState(() {
+      var newImagePath = 'path/to/your/new/image.jpg'; // Replace with the actual image path
+    });
+  }
+
   void _showEditDialog() {
+    String newImagePath = 'assets/profile.jpg';
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -47,6 +60,11 @@ class _BiodataScreenState extends State<BiodataScreen> {
                 EditTextField(label: 'Gender', controller: genderController),
                 EditTextField(label: 'Age', controller: ageController),
                 EditTextField(label: 'Address', controller: addressController),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: _pickImage, // Call function to pick a new image
+                  child: Text('Change Profile Picture'),
+                ),
               ],
             ),
           ),

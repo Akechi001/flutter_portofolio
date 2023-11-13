@@ -10,7 +10,7 @@ class BiodataCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity, // Set a fixed width for each card
+      width: 1000, // Set a fixed width for each card
       child: Card(
         elevation: 5,
         margin: EdgeInsets.symmetric(vertical: 8),
