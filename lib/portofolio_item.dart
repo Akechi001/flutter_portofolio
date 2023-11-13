@@ -58,10 +58,22 @@ class MyCard {
 }
 
 final List<MyCard> myCards = [
-  MyCard(imagePath: 'assets/card1.jpg', line1: 'Wakil Ketua UKM WEEBUSINESS', line2: '2023 - sekarang'),
-  MyCard(imagePath: 'assets/card3.jpg', line1: 'Wakil Ketua UKM Karate', line2: '2022 - 2023'),
-  MyCard(imagePath: 'assets/card2.jpg', line1: 'Panitia LO NPLC 10th', line2: '2022'),
-  MyCard(imagePath: 'assets/card4.jpg', line1: 'Finalis lomba IOT Semarang', line2: '2022'),
+  MyCard(
+      imagePath: 'assets/card1.jpg',
+      line1: 'Wakil Ketua UKM WEEBUSINESS',
+      line2: '2023 - sekarang'),
+  MyCard(
+      imagePath: 'assets/card3.jpg',
+      line1: 'Wakil Ketua UKM Karate',
+      line2: '2022 - 2023'),
+  MyCard(
+      imagePath: 'assets/card2.jpg',
+      line1: 'Panitia LO NPLC 10th',
+      line2: '2022'),
+  MyCard(
+      imagePath: 'assets/card4.jpg',
+      line1: 'Finalis lomba IOT Semarang',
+      line2: '2022'),
   // Add more cards as needed
 ];
 
@@ -81,18 +93,19 @@ class MyCardWidget extends StatelessWidget {
           ),
           SizedBox(height: 8.0),
           Padding(
-            padding: const EdgeInsets.only(left: 10.0, right: 10.0), // Padding hanya pada kiri dan kanan
+            padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+            // Padding hanya pada kiri dan kanan
             child: Text(
-                myCard.line1,
-                textAlign: TextAlign.left,
+              myCard.line1,
+              textAlign: TextAlign.left,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0), // Padding hanya pada kiri dan kanan
+            padding: const EdgeInsets.all(8.0),
+            // Padding hanya pada kiri dan kanan
             child: Text(
-                myCard.line2,
-                textAlign: TextAlign.left,
-
+              myCard.line2,
+              textAlign: TextAlign.left,
             ),
           ),
         ],
@@ -100,6 +113,7 @@ class MyCardWidget extends StatelessWidget {
     );
   }
 }
+
 class ContactInfo extends StatelessWidget {
   final String iconPath; // Change from IconData to String for SVG path
   final String info;

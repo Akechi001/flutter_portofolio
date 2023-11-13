@@ -45,27 +45,27 @@ class EditTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 500,
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Text(
-            '$label: ',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Expanded(
-            child: TextField(
-              controller: controller,
-              style: TextStyle(fontSize: 18),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
+      width: 500,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Text(
+              '$label: ',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Expanded(
+              child: TextField(
+                controller: controller,
+                style: TextStyle(fontSize: 18),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
     );
   }
 }

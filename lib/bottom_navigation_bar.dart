@@ -4,7 +4,8 @@ class ReusableBottomNavigationBar extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  ReusableBottomNavigationBar({required this.currentIndex, required this.onTap});
+  ReusableBottomNavigationBar(
+      {required this.currentIndex, required this.onTap});
 
   @override
   _ReusableBottomNavigationBarState createState() =>
@@ -35,5 +36,3 @@ class _ReusableBottomNavigationBarState
     );
   }
 }
-
-

@@ -64,7 +64,7 @@ void main() {
           );
         case '/Portofolio':
           return PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation){
+            pageBuilder: (context, animation, secondaryAnimation) {
               return PortofolioScreen();
             },
             /*transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -78,7 +78,6 @@ void main() {
           );
       }
     },
-
     home: MyHomePage(),
   ));
 }

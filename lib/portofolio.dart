@@ -1,7 +1,5 @@
-// favorites_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_portofolio/portofolio_item.dart';
-import 'package:flutter_svg/svg.dart';
 
 class PortofolioScreen extends StatelessWidget {
   @override

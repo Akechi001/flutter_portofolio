@@ -52,7 +52,8 @@ class _BiodataScreenState extends State<BiodataScreen> {
                 EditTextField(label: 'Gender', controller: genderController),
                 EditTextField(label: 'Age', controller: ageController),
                 EditTextField(label: 'Address', controller: addressController),
-                EditTextField(label: 'Religion', controller: religionController),
+                EditTextField(
+                    label: 'Religion', controller: religionController),
                 EditTextField(label: 'Occupation', controller: occupation),
                 SizedBox(height: 16),
               ],

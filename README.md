@@ -1,16 +1,19 @@
 # flutter_portofolio
 
-A new Flutter project.
+Flutter ini berisikan 3 halaman utama, yaitu HomeScreen,
+BiodataScreen, dan PortofolioScreen.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Pada awal pembukaan aplikasi, user akan melihat HomeScreen
+yang berisi gambar profile picture dan nama user tersebut. 
+setelah itu pada bagian bawah akan terdapat 3 bagian bottom
+navbar yang bisa berpindah.
 
-A few resources to get you started if this is your first Flutter project:
+Pada Biodata akan terdapat profile picture, nama, gender,
+Age, Adress, Religion dan Occupation. setelah itu, akan ada
+button yang bisa mengedit biodata tersebut 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pada bagian terakhir terdapat PortofolioScreen yang dimana
+didalamnya terdapat skill, education, experience dan contact
+dari user sekarang.
