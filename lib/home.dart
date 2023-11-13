@@ -1,89 +1,60 @@
 // home_screen.dart
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_portofolio/biodata.dart';
 import 'bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: Colors.blue,
-                width: 2.0,
-              ),
-            ),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/profile.jpg'),
-              radius: 150.0,
-              ),
-            ),
-          SizedBox(height: 20),
-          Text(
-            'Hijikata Toshiro',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 50),
-          ElevatedButton.icon(
-              onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BiodataScreen(),
-                  ),
-                );
-          },
-              icon: Icon(
-                Icons.people,
-                size: 30,
-              ),
-              label: Text(
-                  'Biodata',
-                style: TextStyle(
-                  fontSize: 40,
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/bg-new.jpg'), // Replace with your image path
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Animated container for the profile picture
+            AnimatedContainer(
+              duration: Duration(seconds: 1),
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.blue,
+                  width: 2.0,
                 ),
               ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.orange,
-              onPrimary: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20), // Adjust padding to control the button's size.
-
-            ),
-          ),
-
-          SizedBox(height: 10),
-          ElevatedButton.icon(
-            onPressed: (){
-
-            },
-            icon: Icon(
-              Icons.portrait,
-              size: 30,
-            ),
-            label: Text(
-              'Portofolio',
-              style: TextStyle(
-                fontSize: 40,
+              child: Hero(
+                tag: 'profileImage', // Unique tag for Hero animation
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/profile.jpg'),
+                  radius: 150.0,
+                ),
               ),
             ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blue,
-              onPrimary: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20), // Adjust padding to control the button's size.
-
+            SizedBox(height: 20),
+            // Animated text for the name
+            TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0, end: 1),
+              duration: Duration(seconds: 1),
+              builder: (context, double value, child) {
+                return Opacity(
+                  opacity: value,
+                  child: child,
+                );
+              },
+              child: Text(
+                'Enrico Kevin Ariantho',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

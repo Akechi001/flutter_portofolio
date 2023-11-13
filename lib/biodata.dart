@@ -8,20 +8,23 @@ class BiodataScreen extends StatefulWidget {
   State<BiodataScreen> createState() => _BiodataScreenState();
 }
 
-
 class _BiodataScreenState extends State<BiodataScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController genderController = TextEditingController();
+  TextEditingController religionController = TextEditingController();
+  TextEditingController occupation = TextEditingController();
 
   @override
   void initState() {
     // Set initial values or fetch from a data source
-    nameController.text = 'Your Name';
-    ageController.text = 'Your Age';
-    addressController.text = 'Your Address';
-    genderController.text = 'Your Gender';
+    nameController.text = 'Enrico Kevin Ariantho';
+    ageController.text = '20';
+    addressController.text = 'Jl.Domba';
+    genderController.text = 'Male';
+    religionController.text = 'Katholik';
+    occupation.text = 'Student';
     super.initState();
   }
 
@@ -31,23 +34,12 @@ class _BiodataScreenState extends State<BiodataScreen> {
     ageController.dispose();
     addressController.dispose();
     genderController.dispose();
+    religionController.dispose();
+    occupation.dispose();
     super.dispose();
   }
 
-  void _pickImage() async {
-    // Implement image picking logic here
-    // You can use plugins like image_picker to allow the user to choose an image from the gallery or take a new photo.
-    // Example using image_picker:
-    // File image = await ImagePicker().getImage(source: ImageSource.gallery);
-    // Update the profile picture with the selected image path.
-    // For simplicity, let's assume the image path is stored in a variable called 'newImagePath'.
-    setState(() {
-      var newImagePath = 'path/to/your/new/image.jpg'; // Replace with the actual image path
-    });
-  }
-
   void _showEditDialog() {
-    String newImagePath = 'assets/profile.jpg';
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -60,11 +52,9 @@ class _BiodataScreenState extends State<BiodataScreen> {
                 EditTextField(label: 'Gender', controller: genderController),
                 EditTextField(label: 'Age', controller: ageController),
                 EditTextField(label: 'Address', controller: addressController),
+                EditTextField(label: 'Religion', controller: religionController),
+                EditTextField(label: 'Occupation', controller: occupation),
                 SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: _pickImage, // Call function to pick a new image
-                  child: Text('Change Profile Picture'),
-                ),
               ],
             ),
           ),
@@ -76,6 +66,8 @@ class _BiodataScreenState extends State<BiodataScreen> {
                   ageController.text = ageController.text;
                   addressController.text = addressController.text;
                   genderController.text = genderController.text;
+                  religionController.text = religionController.text;
+                  occupation.text = occupation.text;
                 });
                 Navigator.of(context).pop();
               },
@@ -90,7 +82,6 @@ class _BiodataScreenState extends State<BiodataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -101,13 +92,14 @@ class _BiodataScreenState extends State<BiodataScreen> {
                 CircleAvatar(
                   radius: 70,
                   backgroundImage: AssetImage('assets/profile.jpg'),
-
                 ),
                 SizedBox(height: 20),
                 BiodataCard(label: 'Name', value: nameController.text),
                 BiodataCard(label: 'Gender', value: genderController.text),
                 BiodataCard(label: 'Age', value: ageController.text),
                 BiodataCard(label: 'Address', value: addressController.text),
+                BiodataCard(label: 'Religion', value: religionController.text),
+                BiodataCard(label: 'Occupation', value: occupation.text),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
