@@ -126,7 +126,7 @@ class PortofolioScreen extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.all(16.0),
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ContactInfo(
